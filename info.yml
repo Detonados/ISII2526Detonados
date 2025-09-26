@@ -1,7 +1,7 @@
 project:
   name: 'ISII-2526-GrupoB2-Detonados'
   owner: 'GrupoB2'
-  teamId: 'Detonados'
+  teamId: 'Detonados1'
   identities: {}
   notifications:
     email: 'luis.lorenzo2@alu.uclm.es,alejandro.jara1@alu.uclm.es,patrik.lopes@alu.uclm.es'
