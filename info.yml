@@ -4,19 +4,18 @@ project:
   teamId: 'Detonados'
   identities: {}
   notifications:
-    email: ['luis.lorenzo2@alu.uclm.es','alejandro.jara1@alu.uclm.es','patrik.lopes@alu.uclm.es']
+    email: 'luis.lorenzo2@alu.uclm.es,alejandro.jara1@alu.uclm.es,patrik.lopes@alu.uclm.es'
   members:
     member1:
       name: 'Luis'
-      surname: 'Lorenzo'
+      surname: 'Lorenzo' 
       githubUsername: 'LuisPetalo'
     member2:
       name: 'Alejandro'
-      surname: 'Jara'
+      surname: 'Jara' 
       githubUsername: 'Alexuss28'
     member3:
       name: 'Patrik'
-      surname: 'Lopes'
+      surname: 'Lopes' 
       githubUsername: 'PATRIK-21-ops'
-
     
