@@ -1,6 +1,6 @@
 project:
-  name: 'ISII-2526-GrupoB2-Detonados'
-  owner: 'GrupoB2'
+  name: 'ISII-2526-GrupoB-Detonados'
+  owner: 'GrupoB'
   teamId: 'Detonados'
   identities: {}
   notifications:
