@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 
-{
+
     public class Device
     {
         public int Id { get; set; }
@@ -28,4 +28,4 @@
         public override bool Equals(object obj) => obj is Device d && this.Id == d.Id;
         public override int GetHashCode() => Id.GetHashCode();
     }
-}
+
