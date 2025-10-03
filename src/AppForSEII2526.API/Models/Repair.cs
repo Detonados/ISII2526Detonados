@@ -6,7 +6,7 @@ public class Repair
     public int Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
-    public float Cost { get; set; }
+    public float Cost { get; set; } 
     public int ScaleId { get; set; }
 
     public Scale Scale { get; set; }
