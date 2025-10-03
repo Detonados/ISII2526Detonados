@@ -4,7 +4,7 @@ project:
   teamId: 'Detonados'
   identities: {}
   notifications:
-    email: 'luis.lorenzo2@alu.uclm.es','alejandro.jara1@alu.uclm.es','patrik.lopes@alu.uclm.es'
+    email: 'luis.lorenzo2@alu.uclm.es,alejandro.jara1@alu.uclm.es,patrik.lopes@alu.uclm.es'
   members:
     member1:
       name: 'Luis'
