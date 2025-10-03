@@ -9,7 +9,7 @@ namespace AppForSEII2526.API.Models
         public string NameModel { get; set; }
 
         // Relación uno-a-muchos: un Model tiene muchos Devices h
-        //public IList<Device> Devices { get; set; } = new List<Device>();
+        public IList<Device> Devices { get; set; } = new List<Device>();
 
         public Model() { } 
 
