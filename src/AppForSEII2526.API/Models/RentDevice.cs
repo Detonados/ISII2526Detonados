@@ -18,8 +18,7 @@ namespace AppForSEII2526.API.Models
         public RentDevice() { }
 
         // Constructor con parámetros
-        public RentDevice(int deviceId, int rentId, int quantity, double price)
-        {
+        public RentDevice(int deviceId, int rentId, int quantity, double price){
             DeviceId = deviceId;
             RentId = rentId;
             Quantity = quantity;
@@ -27,16 +26,15 @@ namespace AppForSEII2526.API.Models
         }
 
         // Sobrescribir Equals
-        public override bool Equals(object obj)
-        {
+        public override bool Equals(object obj){
+
             return obj is RentDevice rd &&
                    rd.DeviceId == this.DeviceId &&
                    rd.RentId == this.RentId;
         }
 
         // Sobrescribir GetHashCode
-        public override int GetHashCode()
-        {
+        public override int GetHashCode(){
             return (DeviceId, RentId).GetHashCode();
         }
     }
