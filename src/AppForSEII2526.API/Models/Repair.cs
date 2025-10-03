@@ -37,5 +37,3 @@ public class Repair
         return HashCode.Combine(Id, Name, Description, Cost, ScaleId);
     }
 }
-
-
