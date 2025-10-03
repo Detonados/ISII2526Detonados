@@ -1,51 +1,32 @@
 ﻿using System;
-public class Model
+using System.Collections.Generic;
+
+namespace AppForSEII2526.API.Models
 {
-    //Atributos 
-    private int id;
-    private string nameModel;
-    private IList<Device> devices;
-
-   / Getters y Setters
-    public int GetId(){
-        return this.id;
-    }
-
-    public void SetId(int id){
-        this.id = id;
-    }
-
-    public string GetNameModel(){
-        return this.nameModel;
-    }
-
-    public void SetNameModel(string nameModel){
-        this.nameModel = nameModel;
-    }
-
-    // Constructores 
-    public Model()
+    public class Model
     {
-        this.devices = new List<Device>();
+        public int Id { get; set; }
+        public string NameModel { get; set; }
+
+        // Relación uno-a-muchos: un Model tiene muchos Devices h
+        public IList<Device> Devices { get; set; } = new List<Device>();
+
+        public Model() { } 
+
+        public Model(int id, string nameModel)
+        {
+            Id = id;
+            NameModel = nameModel;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Model m && this.Id == m.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Id.GetHashCode();
+        }
     }
-
-    public Model(int id, string nameModel){
-        // Llamada explícita al constructor sin parámetros
-        this(); // Así como lo harías en Java
-        this.id = id;
-        this.nameModel = nameModel;
-    }
-    public int GetId(){
-    return this.id;
-    }
-
-
-public override bool Equals(object obj){
-    return obj is Model m && this.id == m.id;
-}
-
-public override int GetHashCode()
-{
-    return this.id.GetHashCode();
-}
 }
