@@ -6,7 +6,7 @@ namespace AppForSEII2526.API.Models
 {
     public class Device
     {
-        // Clave primaria
+        // Clave primaria a
         [Key]
         public int Id { get; set; }
 
