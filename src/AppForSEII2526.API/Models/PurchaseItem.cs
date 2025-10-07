@@ -1,24 +1,45 @@
-﻿namespace AppForSEII2526.API.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace AppForSEII2526.API.Models
 {
     public class PurchaseItem
     {
-        // Atributos en el orden del diagrama
+        [Key] // Clave primaria
+        public int Id { get; set; }
+
+        [Required]
+        [MaxLength(200)]
         public string Description { get; set; }
+
+        [Required]
+        [ForeignKey("Device")]
         public int DeviceId { get; set; }
+
+        [Required]
+        [Range(0, double.MaxValue)]
         public double Price { get; set; }
+
+        [Required]
+        [ForeignKey("Purchase")]
         public int PurchaseId { get; set; }
+
+        [Required]
+        [Range(1, int.MaxValue)]
         public int Quantity { get; set; }
 
-        // Métodos en el orden del diagrama
+        public Device Device { get; set; }
+        public Purchase Purchase { get; set; }
+
         public override bool Equals(object obj)
         {
             if (obj is not PurchaseItem other) return false;
-            return DeviceId == other.DeviceId && PurchaseId == other.PurchaseId;
+            return Id == other.Id;
         }
 
         public override int GetHashCode()
         {
-            return (DeviceId, PurchaseId).GetHashCode();
+            return Id.GetHashCode();
         }
 
         public PurchaseItem()
