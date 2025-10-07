@@ -12,10 +12,11 @@ project:
       githubUsername: 'Petalo'
     member2:
       name: 'Alejandro'
-      surname: 'Jara' 
+      surname: 'Jara'
       githubUsername: 'Alexuss28'
     member3:
       name: 'Patrik'
-      surname: 'Lopes' 
+      surname: 'Lopes'
       githubUsername: 'PATRIK-21-ops'
+
     
