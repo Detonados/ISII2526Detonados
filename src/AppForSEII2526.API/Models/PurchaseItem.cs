@@ -31,14 +31,6 @@ namespace AppForSEII2526.API.Models
         public Device Device { get; set; }
         public Purchase Purchase { get; set; }
 
-        public Device Device1
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public override bool Equals(object obj)
         {
             if (obj is not PurchaseItem other) return false;

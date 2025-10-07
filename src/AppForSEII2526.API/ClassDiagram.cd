@@ -35,21 +35,13 @@
   </Class>
   <Class Name="AppForSEII2526.API.Models.PurchaseItem">
     <Position X="8.5" Y="4.75" Width="2" />
-    <AssociationLine Name="Device1" Type="AppForSEII2526.API.Models.Device" ManuallyRouted="true" FixedFromPoint="true">
-      <Path>
-        <Point X="8.5" Y="5.437" />
-        <Point X="6.25" Y="5.437" />
-        <Point X="6.25" Y="5.438" />
-        <Point X="4" Y="5.438" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAQCAAAABQAgAgABgAAAAAAAAAAAAIAAEAAAgAAAAAA=</HashCode>
+      <HashCode>AAQCAAAABQAgAgAAgAAAAAAAAAAAAIAAEAAAgAAAAAA=</HashCode>
       <FileName>Models\PurchaseItem.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Device1" />
       <Property Name="Purchase" />
+      <Property Name="Device" />
     </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
