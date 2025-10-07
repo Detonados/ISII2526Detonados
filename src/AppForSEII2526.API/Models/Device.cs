@@ -40,12 +40,11 @@ namespace AppForSEII2526.API.Models
         [Range(1900, 2100, ErrorMessage = "El año debe estar entre 1900 y 2100.")]
         public int? Year { get; set; } // Opcional
 
-        // Clave foránea para Model
+  
+
+        // Relación muchos-a-uno con Model y clave foranea
         [ForeignKey("Model")]
         [Required(ErrorMessage = "El modelo es obligatorio.")]
-        public int ModelId { get; set; }
-
-        // Relación muchos-a-uno con Model
         public Model Model { get; set; }
 
         // Relación uno-a-muchos con RentDevice

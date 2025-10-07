@@ -38,8 +38,7 @@ namespace AppForSEII2526.API.Models
         [Range(0, double.MaxValue, ErrorMessage = "El precio total debe ser positivo.")]
         public double TotalPrice { get; set; }
 
-        // Relación uno-a-muchos con RentDevice
-        public IList<RentDevice> RentedDevices { get; set; } = new List<RentDevice>();
+        public RentDevice RentDevice { get; set; }
 
         public override bool Equals(object obj) => obj is Rental r && this.Id == r.Id;
         public override int GetHashCode() => Id.GetHashCode();
