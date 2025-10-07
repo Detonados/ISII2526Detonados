@@ -13,11 +13,6 @@ public class ReceiptItem
     [Required(ErrorMessage = "El identificador del recibo es obligatorio.")]
     public int ReceiptId { get; set; }
 
-    [Key, Column(Order = 1)]
-    [ForeignKey("Repair")]
-    [Required(ErrorMessage = "El identificador de la reparación es obligatorio.")]
-    public int RepairId { get; set; }
-
     public Receipt Receipt { get; set; }
     public Repair Repair { get; set; }
 
