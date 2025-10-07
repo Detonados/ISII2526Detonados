@@ -24,26 +24,28 @@ namespace AppForSEII2526.API.Models
         public string Name { get; set; }
 
         [Range(0, double.MaxValue, ErrorMessage = "El precio de compra debe ser positivo.")]
-        public double PriceForPurchase { get; set; }
+        public double? PriceForPurchase { get; set; } // Opcional
 
+        [Required(ErrorMessage = "El precio de alquiler es obligatorio.")]
         [Range(0, double.MaxValue, ErrorMessage = "El precio de alquiler debe ser positivo.")]
         public double PriceForRent { get; set; }
 
         [Range(0, int.MaxValue, ErrorMessage = "La cantidad para compra debe ser positiva.")]
-        public int QuantityForPurchase { get; set; }
+        public int? QuantityForPurchase { get; set; } // Opcional
 
+        [Required(ErrorMessage = "La cantidad para alquiler es obligatoria.")]
         [Range(0, int.MaxValue, ErrorMessage = "La cantidad para alquiler debe ser positiva.")]
         public int QuantityForRent { get; set; }
 
         [Range(1900, 2100, ErrorMessage = "El año debe estar entre 1900 y 2100.")]
-        public int Year { get; set; }
+        public int? Year { get; set; } // Opcional
 
         // Clave foránea para Model
         [ForeignKey("Model")]
+        [Required(ErrorMessage = "El modelo es obligatorio.")]
         public int ModelId { get; set; }
 
         // Relación muchos-a-uno con Model
-        [Required(ErrorMessage = "El modelo es obligatorio.")]
         public Model Model { get; set; }
 
         // Relación uno-a-muchos con RentDevice
