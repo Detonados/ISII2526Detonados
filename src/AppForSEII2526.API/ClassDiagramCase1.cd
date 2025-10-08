@@ -13,7 +13,7 @@
   <Class Name="AppForSEII2526.API.Models.Device">
     <Position X="1.5" Y="4.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAASAAQCBABAAAAAgQAAAIQAAAAgAIAAAAgAgBABAAA=</HashCode>
+      <HashCode>AAASAAQCBABAAAAAgQAAAAQAAAAgAIAAAAgAgBABAAA=</HashCode>
       <FileName>Models\Device.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -40,9 +40,19 @@
       <FileName>Models\PurchaseItem.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Purchase" />
       <Property Name="Device" />
+      <Property Name="Purchase" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="AppForSEII2526.API.Models.ApplicationUser">
+    <Position X="4.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ApplicationUser.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Purchase" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
