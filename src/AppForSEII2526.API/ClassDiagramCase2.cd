@@ -12,10 +12,17 @@
   </Class>
   <Class Name="AppForSEII2526.API.Models.Device">
     <Position X="2.5" Y="1.25" Width="2.5" />
+    <NestedTypes>
+      <Enum Name="AppForSEII2526.API.Models.Device.QualityType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\Device.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <AssociationLine Name="Model" Type="AppForSEII2526.API.Models.Model" FixedFromPoint="true">
       <Path>
-        <Point X="5" Y="2.75" />
-        <Point X="8.25" Y="2.75" />
+        <Point X="5" Y="2.856" />
+        <Point X="8.25" Y="2.856" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
