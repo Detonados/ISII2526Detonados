@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using DataType = System.ComponentModel.DataAnnotations.DataType;
 
 namespace AppForSEII2526.API.Models
 {
@@ -10,7 +11,7 @@ namespace AppForSEII2526.API.Models
 
         [Required(ErrorMessage = "La descripción es obligatoria.")]
         [MaxLength(200, ErrorMessage = "La descripción no puede superar los 200 caracteres.")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [Required(ErrorMessage = "El identificador del dispositivo es obligatorio.")]
         [ForeignKey("Device")]
@@ -18,8 +19,10 @@ namespace AppForSEII2526.API.Models
 
         [Required(ErrorMessage = "El precio es obligatorio.")]
         [Range(0, double.MaxValue, ErrorMessage = "El precio debe ser igual o mayor que 0.")]
+        [DataType(DataType.Currency)]
         public double Price { get; set; }
 
+        //Clave foránea
         [Required(ErrorMessage = "El identificador de la compra es obligatorio.")]
         [ForeignKey("Purchase")]
         public int PurchaseId { get; set; }
@@ -28,6 +31,7 @@ namespace AppForSEII2526.API.Models
         [Range(1, int.MaxValue, ErrorMessage = "La cantidad debe ser al menos 1.")]
         public int Quantity { get; set; }
 
+        //Relaciones
         public Device Device { get; set; }
         public Purchase Purchase { get; set; }
 

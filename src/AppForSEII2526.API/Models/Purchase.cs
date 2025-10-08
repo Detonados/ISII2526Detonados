@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using DataType = System.ComponentModel.DataAnnotations.DataType;
 
 namespace AppForSEII2526.API.Models
 {
@@ -10,30 +11,35 @@ namespace AppForSEII2526.API.Models
         [Key] // Clave primaria
         public int Id { get; set; }
 
-        [Required] // Requisito
-        [MaxLength(100)]
+        //Requisitos
+        [Required(ErrorMessage = "El nombre de usuario es obligatorio.")]
+        [MaxLength(100, ErrorMessage = "El nombre de usuario no puede superar los 100 caracteres.")]
         public string CustomerUserName { get; set; }
 
-        [Required]
-        [MaxLength(100)]
+        [Required(ErrorMessage = "El apellido es obligatorio.")]
+        [MaxLength(100, ErrorMessage = "El apellido de usuario no puede superar los 100 caracteres.")]
         public string CustomerUserSurname { get; set; }
 
-        [Required]
-        [MaxLength(200)]
+        [Required(ErrorMessage = "La dirección de entrega es obligatoria.")]
+        [MaxLength(200, ErrorMessage = "La dirección de entrega no puede superar los 200 caracteres.")]
         public string DeliveryAddress { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Añade una forma de pago.")]
         public PaymentMethod PaymentMethod { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "La fecha de compra es obligatoria.")]
+        [DataType(DataType.Date), Display(Name = "Fecha de Compra")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime PurchaseDate { get; set; }
 
-        [Required]
-        [Range(0, double.MaxValue)]
+        [Required(ErrorMessage = "El precio total es obligatorio.")]
+        [Range(0, double.MaxValue, ErrorMessage = "El precio total debe ser igual o mayor que 0.")]
+        
         public double TotalPrice { get; set; }
 
-        [Required]
-        [Range(0, int.MaxValue)]
+        [Required(ErrorMessage = "La cantidad total es obligatoria.")]
+        [Range(1, int.MaxValue, ErrorMessage = "La cantidad debe ser igual o mayor que 1.")]
+        [DataType(DataType.Currency)]
         public int TotalQuantity { get; set; }
 
         // Relación uno n con PurchaseItem
