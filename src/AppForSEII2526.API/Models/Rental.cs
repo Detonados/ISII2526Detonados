@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using DataType = System.ComponentModel.DataAnnotations.DataType;
 
 namespace AppForSEII2526.API.Models
 {
@@ -10,7 +11,10 @@ namespace AppForSEII2526.API.Models
         [Key]
         public int Id { get; set; }
 
-        // Campos requeridos y restricciones
+        // Jojos
+        //---------------------------------------------------------------------------------------
+
+        // Campos requeridos y restricciones  (Strings)
         [Required(ErrorMessage = "El nombre es obligatorio.")]
         [StringLength(100, ErrorMessage = "El nombre no puede superar los 100 caracteres.")]
         public string Name { get; set; }
@@ -22,26 +26,71 @@ namespace AppForSEII2526.API.Models
         [Required(ErrorMessage = "La dirección de entrega es obligatoria.")]
         [StringLength(200, ErrorMessage = "La dirección no puede superar los 200 caracteres.")]
         public string DeliveryAddress { get; set; }
+        //---------------------------------------------------------------------------------------
+
+        // Clases y Relaciones a otras tablas
 
         [Required(ErrorMessage = "El método de pago es obligatorio.")]
         public PaymentMethod PaymentMethod { get; set; }
 
-        [Required(ErrorMessage = "La fecha de alquiler es obligatoria.")]
+        public RentDevice RentDevice { get; set; }
+        //---------------------------------------------------------------------------------------
+        // Fechas DateTypes
+
+        [DataType(DataType.Date), Display(Name = "Fecha de alquiler")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime RentalDate { get; set; } = DateTime.UtcNow;
-
-        [Required(ErrorMessage = "La fecha de inicio del alquiler es obligatoria.")]
+        [DataType(DataType.Date), Display(Name = "Fecha inicio alquiler")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime RentalDateFrom { get; set; }
-
-        [Required(ErrorMessage = "La fecha de fin del alquiler es obligatoria.")]
+        [DataType(DataType.Date), Display(Name = "Fecha fin alquiler")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]        
         public DateTime RentalDateTo { get; set; }
+        //---------------------------------------------------------------------------------------
+        //Precios
 
+        [Required(ErrorMessage = "El precio total es obligatorio.")]
+        [DataType(DataType.Currency)]
         [Range(0, double.MaxValue, ErrorMessage = "El precio total debe ser positivo.")]
         public double TotalPrice { get; set; }
 
-        // Relación uno-a-muchos con RentDevice
-        public IList<RentDevice> RentedDevices { get; set; } = new List<RentDevice>();
+        //---------------------------------------------------------------------------------------
 
+        // Constructores
+        public Rental()
+        {
+            // Constructor vacío 
+        }
+        //Constructor lleno
+        public Rental(
+            int id,
+            string name,
+            string surname,
+            string deliveryAddress,
+            PaymentMethod paymentMethod,
+            RentDevice rentDevice,
+            DateTime rentalDate,
+            DateTime rentalDateFrom,
+            DateTime rentalDateTo,
+            double totalPrice)
+        {
+            Id = id;
+            Name = name;
+            Surname = surname;
+            DeliveryAddress = deliveryAddress;
+            PaymentMethod = paymentMethod;
+            RentDevice = rentDevice;
+            RentalDate = rentalDate;
+            RentalDateFrom = rentalDateFrom;
+            RentalDateTo = rentalDateTo;
+            TotalPrice = totalPrice;
+        }
+
+        //---------------------------------------------------------------------------------------
+
+        //Metodos de clase  equals y gethashcode
         public override bool Equals(object obj) => obj is Rental r && this.Id == r.Id;
         public override int GetHashCode() => Id.GetHashCode();
+
     }
 }
