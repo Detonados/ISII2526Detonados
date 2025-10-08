@@ -13,11 +13,12 @@
   <Class Name="Repair">
     <Position X="7.25" Y="1" Width="2" />
     <TypeIdentifier>
-      <HashCode>ACACAAAAAAAgAAAQgAIAABQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ACACAAAAAAAgAAAQgAIAABAAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Repair.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Scale" />
+      <Property Name="ApplicationUser" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="ReceiptItems" />
@@ -37,14 +38,17 @@
     <Position X="17.25" Y="1" Width="3.75" />
     <AssociationLine Name="ReceiptItems" Type="ReceiptItem" FixedFromPoint="true">
       <Path>
-        <Point X="17.25" Y="1.938" />
-        <Point X="14.25" Y="1.938" />
+        <Point X="17.25" Y="1.871" />
+        <Point X="14.25" Y="1.871" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAGAAAAAAAAAAAQgCAAAAAIAAQAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAQgCAAAAAIAAQAQAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Receipt.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ApplicationUser" />
+    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="ReceiptItems" />
     </ShowAsCollectionAssociation>
@@ -52,12 +56,11 @@
   <Class Name="AppForSEII2526.API.Models.ApplicationUser">
     <Position X="12" Y="4.25" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAwAAAAAAAAAQAAAAAAAAAQABAAAAAAAAAAAAAABAAA=</HashCode>
+      <HashCode>AAwAAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Models\ApplicationUser.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Receipts" />
-      <Property Name="Repairs" />
     </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -17,22 +17,25 @@ public class ApplicationUser : IdentityUser
     }
 
     [Display(Name = "Name")]
-    public string? Name
+    public string Name
     {
         get;
         set;
     }
 
     //---------------------
-    public IList<Purchase> Purchase { get; set; }
-    public IList<Rental> Rentals { get; set; }
-    public IList<Receipt> Receipts { get; set; }
-    public IList<Repair> Repairs { get; set; }
+    //relaciones
+    //---------------------
+    //Si no las inicializo peta con null posiblemente. mejor un vacio
 
+    public IList<Purchase> Purchase { get; set; } = new List<Purchase>();
+    public IList<Rental> Rentals { get; set; } = new List<Rental>();
+    public IList<Receipt> Receipts { get; set; } = new List<Receipt>();
+    public IList<Repair> Repairs { get; set; } = new List<Repair>();
     //---------------------
 
     [Display(Name = "Surname")]
-    public string? Surname
+    public string Surname
     {
         get;
         set;

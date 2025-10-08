@@ -10,15 +10,7 @@ namespace AppForSEII2526.API.Models
     {
         [Key] // Clave primaria
         public int Id { get; set; }
-
-        //Requisitos
-        [Required(ErrorMessage = "El nombre de usuario es obligatorio.")]
-        [MaxLength(100, ErrorMessage = "El nombre de usuario no puede superar los 100 caracteres.")]
-        public string CustomerUserName { get; set; }
-
-        [Required(ErrorMessage = "El apellido es obligatorio.")]
-        [MaxLength(100, ErrorMessage = "El apellido de usuario no puede superar los 100 caracteres.")]
-        public string CustomerUserSurname { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         [Required(ErrorMessage = "La dirección de entrega es obligatoria.")]
         [MaxLength(200, ErrorMessage = "La dirección de entrega no puede superar los 200 caracteres.")]

@@ -9,7 +9,7 @@ namespace AppForSEII2526.API.Models
     {
 
 
-        // Clave primaria - Unica e Irrepetible, identificador primaria de tabla
+        // Clave primaria - Unica e Irrepetible, identificador primaria de tabla LLLV
         [Key]
         public int Id { get; set; }
         //---------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@ namespace AppForSEII2526.API.Models
 
 
         // Relación muchos-a-uno con Model y clave foranea
-        [ForeignKey("Model")]
+       
         [Required(ErrorMessage = "El modelo es obligatorio.")]
         public Model Model { get; set; }
 

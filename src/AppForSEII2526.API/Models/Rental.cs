@@ -36,7 +36,7 @@ namespace AppForSEII2526.API.Models
         public RentDevice RentDevice { get; set; }
         //---------------------------------------------------------------------------------------
         // Fechas DateTypes
-
+        public ApplicationUser ApplicationUser { get; set; }
         [DataType(DataType.Date), Display(Name = "Fecha de alquiler")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime RentalDate { get; set; } = DateTime.UtcNow;
