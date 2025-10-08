@@ -17,7 +17,7 @@ public class ApplicationUser : IdentityUser
     }
 
     [Display(Name = "Name")]
-    public string? Name
+    public string Name
     {
         get;
         set;
@@ -27,12 +27,11 @@ public class ApplicationUser : IdentityUser
     public IList<Purchase> Purchase { get; set; }
     public IList<Rental> Rentals { get; set; }
     public IList<Receipt> Receipts { get; set; }
-    public IList<Repair> Repairs { get; set; }
 
     //---------------------
 
     [Display(Name = "Surname")]
-    public string? Surname
+    public string Surname
     {
         get;
         set;

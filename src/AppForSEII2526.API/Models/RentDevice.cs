@@ -1,15 +1,20 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using DataType = System.ComponentModel.DataAnnotations.DataType;
+
 namespace AppForSEII2526.API.Models
+
 {
+    // Clave primaria compuesta (DeviceId + RentId) se configura en el DbContext
+    [PrimaryKey(nameof(DeviceId),nameof(RentId))]
     public class RentDevice
     {
         // Clave primaria compuesta (DeviceId + RentId) se configura en el DbContext
         [Required(ErrorMessage = "El identificador del dispositivo es obligatorio.")]
         public int DeviceId { get; set; }
-        [Key]
+    
         
         [Required(ErrorMessage = "El identificador del alquiler es obligatorio.")]
         public int RentId { get; set; }

@@ -12,6 +12,13 @@
   </Class>
   <Class Name="AppForSEII2526.API.Models.Device">
     <Position X="1.5" Y="4.5" Width="2.5" />
+    <NestedTypes>
+      <Enum Name="AppForSEII2526.API.Models.Device.QualityType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\Device.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAASAAQCBABAAAAAgQAAAAQAAAAgAIAAAAgAgBABAAA=</HashCode>
       <FileName>Models\Device.cs</FileName>
@@ -26,9 +33,12 @@
   <Class Name="AppForSEII2526.API.Models.Purchase">
     <Position X="8.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAADAAAAAABAAAAQgKAAAAAAAAAAQIQAAAAAAAAAAAE=</HashCode>
+      <HashCode>AAADAAAAAABAAAAQgKAAAAAAAAAAQIQAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Purchase.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ApplicationUser" />
+    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="PurchaseItems" />
     </ShowAsCollectionAssociation>
@@ -47,7 +57,7 @@
   <Class Name="AppForSEII2526.API.Models.ApplicationUser">
     <Position X="4.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAwAAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAwAAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Models\ApplicationUser.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
