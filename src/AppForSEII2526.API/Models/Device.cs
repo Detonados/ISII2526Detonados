@@ -20,7 +20,7 @@ namespace AppForSEII2526.API.Models
             Used,
             Refurbished
         }
-        //---------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------------------
         // Campos requeridos y restricciones (ATR)
         [Required(ErrorMessage = "La marca es obligatoria.")]
         [StringLength(50, ErrorMessage = "La marca no puede superar los 50 caracteres.")]
