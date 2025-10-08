@@ -65,7 +65,7 @@ namespace AppForSEII2526.API.Models
 
 
         // Relación muchos-a-uno con Model y clave foranea
-        [ForeignKey("Model")]
+       
         [Required(ErrorMessage = "El modelo es obligatorio.")]
         public Model Model { get; set; }
 
