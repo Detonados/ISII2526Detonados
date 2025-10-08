@@ -9,7 +9,7 @@ namespace AppForSEII2526.API.Models
     {
 
 
-        // Clave primaria - Unica e Irrepetible, identificador primaria de tabla
+        // Clave primaria - Unica e Irrepetible, identificador primaria de tabla LLLV
         [Key]
         public int Id { get; set; }
         //---------------------------------------------------------------------------------------

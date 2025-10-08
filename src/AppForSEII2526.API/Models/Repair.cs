@@ -19,7 +19,7 @@ public class Repair
     [Required(ErrorMessage = "El costo es obligatorio.")]
     [Precision(10, 2)]
     [Range(0, double.MaxValue, ErrorMessage = "El costo debe ser positivo.")]
-    public float Cost { get; set; } 
+    public double Cost { get; set; }  // Cambia float por decimal
 
     [ForeignKey("Scale")]
     [Required(ErrorMessage = "El identificador de la balanza es obligatorio.")]
@@ -30,7 +30,7 @@ public class Repair
     public List<ReceiptItem> ReceiptItems { get; set; } = new List<ReceiptItem>();
 
     public Repair() { }
-    public Repair(int id, string description, float cost, int scaleId)
+    public Repair(int id, string description, double cost, int scaleId)
     {
         Id = id;
         

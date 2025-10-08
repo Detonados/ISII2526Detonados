@@ -513,8 +513,7 @@ namespace AppForSEII2526.API.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<double>("TotalPrice")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("float(10)");
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -526,18 +525,17 @@ namespace AppForSEII2526.API.Migrations
             modelBuilder.Entity("ReceiptItem", b =>
                 {
                     b.Property<int>("ReceiptId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(0);
+                        .HasColumnType("int");
+
+                    b.Property<int>("RepairId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("RepairId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ReceiptId");
+                    b.HasKey("ReceiptId", "RepairId");
 
                     b.HasIndex("RepairId");
 
@@ -556,9 +554,9 @@ namespace AppForSEII2526.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<float>("Cost")
+                    b.Property<double>("Cost")
                         .HasPrecision(10, 2)
-                        .HasColumnType("real(10)");
+                        .HasColumnType("float(10)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -750,7 +748,7 @@ namespace AppForSEII2526.API.Migrations
                     b.HasOne("Repair", "Repair")
                         .WithMany("ReceiptItems")
                         .HasForeignKey("RepairId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Receipt");
@@ -761,7 +759,7 @@ namespace AppForSEII2526.API.Migrations
             modelBuilder.Entity("Repair", b =>
                 {
                     b.HasOne("AppForSEII2526.API.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
+                        .WithMany("Repairs")
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -784,6 +782,8 @@ namespace AppForSEII2526.API.Migrations
                     b.Navigation("Receipts");
 
                     b.Navigation("Rentals");
+
+                    b.Navigation("Repairs");
                 });
 
             modelBuilder.Entity("AppForSEII2526.API.Models.Device", b =>

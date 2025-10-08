@@ -18,6 +18,27 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<PurchaseItem> PurchaseItems { get; set; }
     public DbSet<ReviewItem> ReviewItems { get; set; }
     public DbSet<Scale> Scales { get; set; }
-   
-    // Agrega aquí cualquier otro DbSet relevante de tus modelos
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        // Configurar clave primaria compuesta para ReceiptItem
+        modelBuilder.Entity<ReceiptItem>()
+            .HasKey(ri => new { ri.ReceiptId, ri.RepairId });
+
+        // Configurar relación Receipt -> ReceiptItems (CASCADE)
+        modelBuilder.Entity<ReceiptItem>()
+            .HasOne(ri => ri.Receipt)
+            .WithMany(r => r.ReceiptItems)
+            .HasForeignKey(ri => ri.ReceiptId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        // Configurar relación Repair -> ReceiptItems (RESTRICT para evitar ciclos)
+        modelBuilder.Entity<ReceiptItem>()
+            .HasOne(ri => ri.Repair)
+            .WithMany(r => r.ReceiptItems)
+            .HasForeignKey(ri => ri.RepairId)
+            .OnDelete(DeleteBehavior.Restrict);
+    }
 }

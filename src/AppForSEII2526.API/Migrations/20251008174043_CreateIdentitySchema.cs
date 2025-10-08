@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AppForSEII2526.API.Migrations
 {
     /// <inheritdoc />
-    public partial class migracionp2 : Migration
+    public partial class CreateIdentitySchema : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -232,7 +232,7 @@ namespace AppForSEII2526.API.Migrations
                     PaymentMethodTypes = table.Column<int>(type: "int", nullable: false),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ReceiptDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TotalPrice = table.Column<double>(type: "float(10)", precision: 10, scale: 2, nullable: false)
+                    TotalPrice = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -314,7 +314,7 @@ namespace AppForSEII2526.API.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Cost = table.Column<float>(type: "real(10)", precision: 10, scale: 2, nullable: false),
+                    Cost = table.Column<double>(type: "float(10)", precision: 10, scale: 2, nullable: false),
                     ScaleId = table.Column<int>(type: "int", nullable: false),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
@@ -414,12 +414,12 @@ namespace AppForSEII2526.API.Migrations
                 columns: table => new
                 {
                     ReceiptId = table.Column<int>(type: "int", nullable: false),
-                    Model = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    RepairId = table.Column<int>(type: "int", nullable: false)
+                    RepairId = table.Column<int>(type: "int", nullable: false),
+                    Model = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ReceiptItems", x => x.ReceiptId);
+                    table.PrimaryKey("PK_ReceiptItems", x => new { x.ReceiptId, x.RepairId });
                     table.ForeignKey(
                         name: "FK_ReceiptItems_Receipts_ReceiptId",
                         column: x => x.ReceiptId,
@@ -431,7 +431,7 @@ namespace AppForSEII2526.API.Migrations
                         column: x => x.RepairId,
                         principalTable: "Repairs",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
