@@ -1,7 +1,7 @@
 ﻿namespace AppForSEII2526.API.Models
 {
     public class ReviewItem {
-        //Clase de funcionamiento al igual qye PaymentMethod.
+        //Clase de funcionamiento al igual qye PaymentMethod..
         [Required(ErrorMessage = "El valor es obligatorio.")]
         [Range(0, 5, ErrorMessage = "El valor debe estar entre 0 y 5.")]
         public int? Rating { get; set; }
