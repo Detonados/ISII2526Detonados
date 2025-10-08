@@ -6,7 +6,7 @@ namespace AppForSEII2526.API.Models
 {
     public class Device
     {
-        // Clave primaria a
+        // Clave primaria - Unica e Irrepetible, identificador primaria de tabla
         [Key]
         public int Id { get; set; }
 
@@ -54,6 +54,7 @@ namespace AppForSEII2526.API.Models
         public IList<PurchaseItem> PurchaseItems { get; set; } = new List<PurchaseItem>();
         public IList<ReviewItem> ReviewItems { get; set; } = new List<ReviewItem>();
 
+        // Métodos Equals y GetHashCode basados en Id (Primary Key)
         public override bool Equals(object obj) => obj is Device d && this.Id == d.Id;
         public override int GetHashCode() => Id.GetHashCode();
     }

@@ -19,14 +19,16 @@ namespace AppForSEII2526.API.Models
         // Relación uno-a-muchos: un Model tiene muchos Devices
         public IList<Device> Devices { get; set; } = new List<Device>();
 
+        //contructor vacio
         public Model() { }
-
+        //constructor con parametros
         public Model(int id, string nameModel)
         {
             Id = id;
             NameModel = nameModel;
         }
 
+        //Metodos Equals y GetHashCode
         public override bool Equals(object obj)
         {
             return obj is Model m && this.Id == m.Id;
