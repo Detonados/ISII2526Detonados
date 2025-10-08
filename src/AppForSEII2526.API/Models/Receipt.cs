@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using DataType = System.ComponentModel.DataAnnotations.DataType;
 
 public class Receipt
 {
@@ -16,7 +17,7 @@ public class Receipt
     public string DeliveryAddress { get; set; }
 
     [Required(ErrorMessage = "El método de pago es obligatorio.")]
-    public PaymentMethodTypes PaymentMethod { get; set; }
+    public  PaymentMethod PaymentMethodTypes { get; set; }
 
 
     [DataType(DataType.Date), Display(Name = "Fecha")]
@@ -42,12 +43,12 @@ public class Receipt
 
     public Receipt() { }
 
-    public Receipt(int id, string customerNameSurname, string deliveryAddress, PaymentMethodTypes paymentMethod, DateTime receiptDate, double totalPrice)
+    public Receipt(int id, string customerNameSurname, string deliveryAddress, PaymentMethod paymentMethodTypes, DateTime receiptDate, double totalPrice)
     {
         Id = id;
         CustomerNameSurname = customerNameSurname;
         DeliveryAddress = deliveryAddress;
-        PaymentMethod = paymentMethod;
+        PaymentMethodTypes = paymentMethodTypes;
         ReceiptDate = receiptDate;
         TotalPrice = totalPrice;
     }

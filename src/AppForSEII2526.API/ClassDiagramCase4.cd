@@ -25,19 +25,12 @@
   </Class>
   <Class Name="ReceiptItem">
     <Position X="11.5" Y="1" Width="2.75" />
-    <AssociationLine Name="Repair" Type="Repair" FixedToPoint="true">
-      <Path>
-        <Point X="11.5" Y="2.5" />
-        <Point X="9.25" Y="2.5" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAgAAAAAAAACAAAIAAACgAAAAAAAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAAAAgAAAAAEAACAAAIAAACgAAAAAAAA=</HashCode>
       <FileName>Models\ReceiptItem.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Receipt" />
-      <Property Name="Repair" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Receipt">
@@ -49,7 +42,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAHAAAAAAAAAAAQgCAAAAAAAAQAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAGAAAAAAAAAAAQgCAAAAAIAAQAQAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Receipt.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>

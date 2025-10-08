@@ -14,6 +14,11 @@ public class ReceiptItem
     public int ReceiptId { get; set; }
 
     public Receipt Receipt { get; set; }
+
+    [ForeignKey("Repair")]
+    [Required(ErrorMessage = "El identificador de la reparación es obligatorio.")]
+    public int RepairId { get; set; }
+
     public Repair Repair { get; set; }
 
     public override bool Equals(object obj)
