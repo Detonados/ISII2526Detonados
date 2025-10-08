@@ -33,7 +33,7 @@ namespace AppForSEII2526.API.Models
         [Required(ErrorMessage = "El nombre es obligatorio.")]
         [StringLength(100, ErrorMessage = "El nombre no puede superar los 100 caracteres.")]
         public string Name { get; set; }
-        //---------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------------------
 
         //Precios currency type
         [DataType(DataType.Currency)]
