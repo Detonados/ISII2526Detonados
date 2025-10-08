@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "AppForSEII2526.API": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:57638;http://localhost:57639"
+    }
+  }
+}
