@@ -16,8 +16,11 @@ public class Repair
     [StringLength(500, ErrorMessage = "La descripción no puede superar los 500 caracteres.")]
     public string Description { get; set; }
 
-    [Required(ErrorMessage = "El coste es obligatorio.")]
-    [Range(0, double.MaxValue, ErrorMessage = "El coste debe ser un valor positivo.")]
+    [DataType(DataType.Currency)]
+    [Display(Name = "Costo")]
+    [Required(ErrorMessage = "El costo es obligatorio.")]
+    [Precision(10, 2)]
+    [Range(0, double.MaxValue, ErrorMessage = "El costo debe ser positivo.")]
     public float Cost { get; set; } 
 
     [ForeignKey("Scale")]

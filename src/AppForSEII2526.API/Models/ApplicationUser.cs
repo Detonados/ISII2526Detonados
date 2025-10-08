@@ -26,6 +26,8 @@ public class ApplicationUser : IdentityUser
     //---------------------
     public IList<Purchase> Purchase { get; set; }
     public IList<Rental> Rentals { get; set; }
+    public IList<Receipt> Receipts
+    public IList<Repair> Repairs
 
     //---------------------
 

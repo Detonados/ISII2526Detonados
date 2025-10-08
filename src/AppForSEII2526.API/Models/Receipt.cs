@@ -18,11 +18,17 @@ public class Receipt
     [Required(ErrorMessage = "El método de pago es obligatorio.")]
     public PaymentMethodTypes PaymentMethod { get; set; }
 
-    [Required(ErrorMessage = "La fecha del recibo es obligatoria.")]
+
+    [DataType(DataType.Date), Display(Name = "Fecha")]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+    [Required(ErrorMessage = "La fecha es obligatoria.")]
     public DateTime ReceiptDate { get; set; }
 
+    [DataType(DataType.Currency)]
+    [Display(Name = "Precio Total")]
     [Required(ErrorMessage = "El precio total es obligatorio.")]
-    [Range(0, double.MaxValue, ErrorMessage = "El precio total debe ser un valor positivo.")]
+    [Precision(10, 2)]
+    [Range(0, double.MaxValue, ErrorMessage = "El precio de compra debe ser positivo.")]
     public double TotalPrice { get; set; }
 
     public List<ReceiptItem> ReceiptItems { get; set; } = new();
