@@ -8,24 +8,24 @@ namespace AppForSEII2526.API.Models
         [Key] // Clave primaria
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(200)]
+        [Required(ErrorMessage = "La descripción es obligatoria.")]
+        [MaxLength(200, ErrorMessage = "La descripción no puede superar los 200 caracteres.")]
         public string Description { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El identificador del dispositivo es obligatorio.")]
         [ForeignKey("Device")]
         public int DeviceId { get; set; }
 
-        [Required]
-        [Range(0, double.MaxValue)]
+        [Required(ErrorMessage = "El precio es obligatorio.")]
+        [Range(0, double.MaxValue, ErrorMessage = "El precio debe ser igual o mayor que 0.")]
         public double Price { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El identificador de la compra es obligatorio.")]
         [ForeignKey("Purchase")]
         public int PurchaseId { get; set; }
 
-        [Required]
-        [Range(1, int.MaxValue)]
+        [Required(ErrorMessage = "La cantidad es obligatoria.")]
+        [Range(1, int.MaxValue, ErrorMessage = "La cantidad debe ser al menos 1.")]
         public int Quantity { get; set; }
 
         public Device Device { get; set; }
