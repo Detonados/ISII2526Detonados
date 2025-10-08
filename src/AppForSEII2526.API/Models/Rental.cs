@@ -14,15 +14,6 @@ namespace AppForSEII2526.API.Models
         // Jojos
         //---------------------------------------------------------------------------------------
 
-        // Campos requeridos y restricciones  (Strings)
-        [Required(ErrorMessage = "El nombre es obligatorio.")]
-        [StringLength(100, ErrorMessage = "El nombre no puede superar los 100 caracteres.")]
-        public string Name { get; set; }
-
-        [Required(ErrorMessage = "El apellido es obligatorio.")]
-        [StringLength(100, ErrorMessage = "El apellido no puede superar los 100 caracteres.")]
-        public string Surname { get; set; }
-
         [Required(ErrorMessage = "La dirección de entrega es obligatoria.")]
         [StringLength(200, ErrorMessage = "La dirección no puede superar los 200 caracteres.")]
         public string DeliveryAddress { get; set; }
@@ -75,8 +66,6 @@ namespace AppForSEII2526.API.Models
             double totalPrice)
         {
             Id = id;
-            Name = name;
-            Surname = surname;
             DeliveryAddress = deliveryAddress;
             PaymentMethod = paymentMethod;
             RentDevice = rentDevice;

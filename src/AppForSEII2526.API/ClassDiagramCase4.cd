@@ -55,12 +55,21 @@
   </Class>
   <Class Name="AppForSEII2526.API.Models.ApplicationUser">
     <Position X="12" Y="4.25" Width="3.75" />
+    <AssociationLine Name="Repairs" Type="Repair" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12" Y="4.783" />
+        <Point X="9.625" Y="4.783" />
+        <Point X="9.625" Y="2.875" />
+        <Point X="9.25" Y="2.875" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAwAAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAABAAA=</HashCode>
+      <HashCode>AAwAAAAAAAAAQAAAAAAAAAQABAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Models\ApplicationUser.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Receipts" />
+      <Property Name="Repairs" />
     </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />

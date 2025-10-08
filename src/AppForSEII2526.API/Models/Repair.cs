@@ -12,7 +12,7 @@ public class Repair
   
     [Required(ErrorMessage = "La descripción es obligatoria.")]
     [StringLength(100, ErrorMessage = "La descripción no puede superar los 500 caracteres.")]
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
     [DataType(DataType.Currency)]
     [Display(Name = "Costo")]
