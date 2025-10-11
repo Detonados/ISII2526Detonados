@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore; // Añade este using
+using Microsoft.EntityFrameworkCore; 
 
 [PrimaryKey(nameof(ReceiptId), nameof(RepairId))] // clave compuesta
 public class ReceiptItem
@@ -9,7 +9,8 @@ public class ReceiptItem
     [Required(ErrorMessage = "El modelo es obligatorio.")]
     [StringLength(100, ErrorMessage = "El modelo no puede superar los 100 caracteres.")]
     public string Model { get; set; }
-
+    //---------------------------------------------------------------------------------------
+    //Claves foraneas
     [ForeignKey("Receipt")]
     [Required(ErrorMessage = "El identificador del recibo es obligatorio.")]
     public int ReceiptId { get; set; }
@@ -19,7 +20,18 @@ public class ReceiptItem
     [Required(ErrorMessage = "El identificador de la reparación es obligatorio.")]
     public int RepairId { get; set; }
     public Repair Repair { get; set; }
+    //---------------------------------------------------------------------------------------
+    //Constructores
+    public ReceiptItem() { }
 
+    public ReceiptItem(string model, int receiptId, int repairId)
+    {
+        Model = model;
+        ReceiptId = receiptId;
+        RepairId = repairId;
+    }
+    //---------------------------------------------------------------------------------------
+    //metodos
     public override bool Equals(object obj)
     {
         if (obj is ReceiptItem other)
@@ -32,12 +44,5 @@ public class ReceiptItem
         return HashCode.Combine(ReceiptId, RepairId, Model);
     }
 
-    public ReceiptItem() { }
-
-    public ReceiptItem(string model, int receiptId, int repairId)
-    {
-        Model = model;
-        ReceiptId = receiptId;
-        RepairId = repairId;
-    }
+    
 }

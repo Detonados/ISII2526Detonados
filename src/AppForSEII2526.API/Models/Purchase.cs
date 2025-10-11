@@ -10,8 +10,8 @@ namespace AppForSEII2526.API.Models
     {
         [Key] // Clave primaria
         public int Id { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
-
+        //---------------------------------------------------------------------------------------
+       // Campos requeridos y restricciones (ATR)
         [Required(ErrorMessage = "La dirección de entrega es obligatoria.")]
         [MaxLength(200, ErrorMessage = "La dirección de entrega no puede superar los 200 caracteres.")]
         public string DeliveryAddress { get; set; }
@@ -33,10 +33,14 @@ namespace AppForSEII2526.API.Models
         [Range(1, int.MaxValue, ErrorMessage = "La cantidad debe ser igual o mayor que 1.")]
         [DataType(DataType.Currency)]
         public int TotalQuantity { get; set; }
-
+        //  ---------------------------------------------------------------------------------------
         // Relación uno n con PurchaseItem
         public IList<PurchaseItem> PurchaseItems { get; set; }
-
+        //  ---------------------------------------------------------------------------------------
+        // relación con ApplicationUser
+        public ApplicationUser ApplicationUser { get; set; }
+        //  ---------------------------------------------------------------------------------------
+        // Métodos Equals y GetHashCode
         public override bool Equals(object obj)
         {
             if (obj is not Purchase other) return false;

@@ -41,7 +41,7 @@ namespace AppForSEII2526.API.Models
         [Required(ErrorMessage = "El precio de compra es obligatorio.")]
         [Precision(10, 2)]
         [Range(0, double.MaxValue, ErrorMessage = "El precio de compra debe ser positivo.")]
-        public double? PriceForPurchase { get; set; } // Opcional
+        public double PriceForPurchase { get; set; } 
         [DataType(DataType.Currency)]
         [Display(Name = "Precio de alquiler")]
         [Precision(10, 2)]
@@ -52,14 +52,14 @@ namespace AppForSEII2526.API.Models
 
         // Cantidades rango minimo 1
         [Range(1, int.MaxValue, ErrorMessage = "La cantidad para compra debe ser positiva.")]
-        public int? QuantityForPurchase { get; set; } // Opcional
+        public int QuantityForPurchase { get; set; } 
 
         [Required(ErrorMessage = "La cantidad para alquiler es obligatoria.")]
         [Range(1, int.MaxValue, ErrorMessage = "La cantidad para alquiler debe ser positiva.")]
         public int QuantityForRent { get; set; }
 
         [Range(1900, 2100, ErrorMessage = "El año debe estar entre 1900 y 2100.")]
-        public int? Year { get; set; } // Opcional
+        public int Year { get; set; } 
 
         //---------------------------------------------------------------------------------------
 
@@ -76,7 +76,6 @@ namespace AppForSEII2526.API.Models
 
         // Otras relaciones (puedes definir las clases si las necesitas)
         public IList<PurchaseItem> PurchaseItems { get; set; } = new List<PurchaseItem>();
-        public IList<ReviewItem> ReviewItems { get; set; } = new List<ReviewItem>();
         //---------------------------------------------------------------------------------------
 
         // Métodos Equals y GetHashCode basados en Id (Primary Key)

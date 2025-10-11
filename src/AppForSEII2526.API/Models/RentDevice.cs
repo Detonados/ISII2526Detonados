@@ -7,10 +7,14 @@ using DataType = System.ComponentModel.DataAnnotations.DataType;
 namespace AppForSEII2526.API.Models
 
 {
+    //---------------------------------------------------------------------------------------
+
     // Clave primaria compuesta (DeviceId + RentId) se configura en el DbContext
     [PrimaryKey(nameof(DeviceId),nameof(RentId))]
     public class RentDevice
     {
+        //---------------------------------------------------------------------------------------
+
         // Clave primaria compuesta (DeviceId + RentId) se configura en el DbContext
         [Required(ErrorMessage = "El identificador del dispositivo es obligatorio.")]
         public int DeviceId { get; set; }
@@ -28,11 +32,13 @@ namespace AppForSEII2526.API.Models
         [Required(ErrorMessage = "La cantidad es obligatoria.")]
         [Range(1, int.MaxValue, ErrorMessage = "La cantidad debe ser al menos 1.")]
         public int Quantity { get; set; }
+        //---------------------------------------------------------------------------------------
 
         // Relaciones muchos-a-uno con otras tablas
         public IList<Device> Devices { get; set; } = new List<Device>();
         public IList<Rental> Rental { get; set; } = new List<Rental>();
-
+        //---------------------------------------------------------------------------------------
+        //Constructores
         public RentDevice() { }
 
         public RentDevice(int deviceId, int rentId, int quantity, double price)

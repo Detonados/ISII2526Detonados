@@ -22,7 +22,7 @@ namespace AppForSEII2526.API.Models
         [DataType(DataType.Currency)]
         public double Price { get; set; }
 
-        //Clave foránea
+        //Claves foránea
         [Required(ErrorMessage = "El identificador de la compra es obligatorio.")]
         [ForeignKey("Purchase")]
         public int PurchaseId { get; set; }

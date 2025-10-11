@@ -20,7 +20,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAASAAQCBABAAAAAgQAAAAQAAAAgAIAAAAgAgBABAAA=</HashCode>
+      <HashCode>AAASAAQCBABAAAAAgQAAAAQAAAAgAIAAAAgAgAABAAA=</HashCode>
       <FileName>Models\Device.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -28,7 +28,6 @@
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="PurchaseItems" />
-      <Property Name="ReviewItems" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="AppForSEII2526.API.Models.Purchase">
@@ -58,19 +57,12 @@
   <Class Name="AppForSEII2526.API.Models.ApplicationUser">
     <Position X="4.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAwAAAAAAAAAQAAAAAAAAAQABAAAAAAAAAAAAAABAAA=</HashCode>
+      <HashCode>AAwAAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Models\ApplicationUser.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Purchase" />
     </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="AppForSEII2526.API.Models.ReviewItem">
-    <Position X="6.25" Y="8.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAEAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\ReviewItem.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
