@@ -8,8 +8,8 @@ project:
   members:
     member1:
       name: 'Luis'
-      surname: 'Lorenzo'
-      githubUsername: 'LuisPetalo'
+      surname: 'Lorenzo' 
+      githubUsername: 'Petalo'
     member2:
       name: 'Alejandro'
       surname: 'Jara'
