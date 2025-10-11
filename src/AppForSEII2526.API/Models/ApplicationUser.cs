@@ -31,7 +31,6 @@ public class ApplicationUser : IdentityUser
     public IList<Purchase> Purchase { get; set; } = new List<Purchase>();
     public IList<Rental> Rentals { get; set; } = new List<Rental>();
     public IList<Receipt> Receipts { get; set; } = new List<Receipt>();
-    public IList<Repair> Repairs { get; set; } = new List<Repair>();
     //---------------------
 
     [Display(Name = "Surname")]
