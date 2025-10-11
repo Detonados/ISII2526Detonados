@@ -313,18 +313,12 @@ namespace AppForSEII2526.API.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Cost = table.Column<double>(type: "float(10)", precision: 10, scale: 2, nullable: false),
-                    ScaleId = table.Column<int>(type: "int", nullable: false),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    ScaleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Repairs", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Repairs_AspNetUsers_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Repairs_Scales_ScaleId",
                         column: x => x.ScaleId,
@@ -515,11 +509,6 @@ namespace AppForSEII2526.API.Migrations
                 name: "IX_Rentals_RentDeviceDeviceId_RentDeviceRentId",
                 table: "Rentals",
                 columns: new[] { "RentDeviceDeviceId", "RentDeviceRentId" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Repairs_ApplicationUserId",
-                table: "Repairs",
-                column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Repairs_ScaleId",

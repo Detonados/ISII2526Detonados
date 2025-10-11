@@ -14,12 +14,19 @@ public class Repair
     [StringLength(100, ErrorMessage = "La descripción no puede superar los 500 caracteres.")]
     public string? Description { get; set; }
 
+
+
     [DataType(DataType.Currency)]
     [Display(Name = "Costo")]
     [Required(ErrorMessage = "El costo es obligatorio.")]
     [Precision(10, 2)]
     [Range(0, double.MaxValue, ErrorMessage = "El costo debe ser positivo.")]
     public double Cost { get; set; }  // Cambia float por decimal
+
+
+    [Required(ErrorMessage = "El nombre es obligatorio.")]
+    [StringLength(100, ErrorMessage = "El nombre no puede superar los 100 caracteres.")]
+    public string Name { get; set; }
 
     [ForeignKey("Scale")]
     [Required(ErrorMessage = "El identificador de la balanza es obligatorio.")]
@@ -49,7 +56,6 @@ public class Repair
                ScaleId == repair.ScaleId;
     }
     //relacion con application user
-    public ApplicationUser ApplicationUser { get; set; }
     public override int GetHashCode()
     {
         return HashCode.Combine(Id, Description, Cost, ScaleId);

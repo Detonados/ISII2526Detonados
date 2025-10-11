@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppForSEII2526.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251008213922_CreateIdentitySchema")]
+    [Migration("20251011085808_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {
         /// <inheritdoc />
@@ -543,10 +543,6 @@ namespace AppForSEII2526.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<double>("Cost")
                         .HasPrecision(10, 2)
                         .HasColumnType("float(10)");
@@ -556,12 +552,15 @@ namespace AppForSEII2526.API.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<int>("ScaleId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("ScaleId");
 
@@ -751,19 +750,11 @@ namespace AppForSEII2526.API.Migrations
 
             modelBuilder.Entity("Repair", b =>
                 {
-                    b.HasOne("AppForSEII2526.API.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany("Repairs")
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Scale", "Scale")
                         .WithMany("Repairs")
                         .HasForeignKey("ScaleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("ApplicationUser");
 
                     b.Navigation("Scale");
                 });
@@ -775,8 +766,6 @@ namespace AppForSEII2526.API.Migrations
                     b.Navigation("Receipts");
 
                     b.Navigation("Rentals");
-
-                    b.Navigation("Repairs");
                 });
 
             modelBuilder.Entity("AppForSEII2526.API.Models.Device", b =>
