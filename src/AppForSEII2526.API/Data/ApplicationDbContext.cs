@@ -16,7 +16,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<Model> Models { get; set; }
     public DbSet<ReceiptItem> ReceiptItems { get; set; }
     public DbSet<PurchaseItem> PurchaseItems { get; set; }
-    public DbSet<ReviewItem> ReviewItems { get; set; }
     public DbSet<Scale> Scales { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
