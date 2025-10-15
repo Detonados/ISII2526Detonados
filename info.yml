@@ -8,15 +8,14 @@ project:
   members:
     member1:
       name: 'Luis'
-      surname: 'Lorenzo'
+      surname: 'Lorenzo' 
       githubUsername: 'Luis-Lorenzo'
     member2:
       name: 'Alejandro'
-      surname: 'Jara'
+      surname: 'Jara' 
       githubUsername: 'Alexuss28'
     member3:
       name: 'Patrik'
-      surname: 'Lopes'
+      surname: 'Lopes' 
       githubUsername: 'PATRIK-21-ops'
-
     
